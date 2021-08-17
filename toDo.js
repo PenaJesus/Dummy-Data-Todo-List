@@ -35,14 +35,10 @@ console.log('connected')
       if (arrayOfTodos[index].completed){
         li.style.color = 'green'
         
-        let li = document.createElement('input');
-        x.setAttribute('type' , 'checkbox');
-        x.checked = true
       } else {
           li.style.color = 'red'
       }
       li.append(text)
       ol.append(li)
-      li.appendChild()
     }
   }
