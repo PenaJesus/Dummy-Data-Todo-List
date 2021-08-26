@@ -26,13 +26,17 @@ console.log('connected')
       console.log(arrayOfTodos)
   }
   
-  const populateTodos = () => {
-    const ol = document.getElementById('todo-list')
-    for (let index = 0; index < arrayOfTodos.length; index++) {
-      const title = arrayOfTodos[index].title;
+  const ol = document.getElementById('todo-list');
+
+  const populateTodos = (arr) => {
+    
+    for (let index = 0; index < arr.length; index++) {
+      const title = arr[index].title;
+
+
       let li = document.createElement('li');
       var text = document.createTextNode(title);
-      if (arrayOfTodos[index].completed){
+      if (arr[index].completed){
         li.style.color = 'green'
         
       } else {
@@ -42,3 +46,49 @@ console.log('connected')
       ol.append(li)
     }
   }
+
+  document.getElementById('populate').addEventListener('click', function(){
+    populateTodos(arrayOfTodos)
+  })
+    
+  
+
+    const filterUserId = () => {
+      ol.innerHTML = ''
+      let userId = document.querySelector('#inputUserID');
+       arrayOfTodos = arrayOfTodos.filter(todo => {
+        return todo.userId == userId.value;
+      })
+      console.log(arrayOfTodos)
+          populateTodos(arrayOfTodos) 
+        
+         userId.value = ''
+        
+        }
+      
+    
+  
+   const removeLi = () => {
+     ol.innerHTML = " ";
+      
+   }
+//pass in an array 
+   const completedLi = () => {
+    ol.innerHTML = " ";
+     let complete = document.querySelector('#complete');
+     arrayOfTodos = arrayOfTodos.filter(todo => {
+       return todo.completed === true
+     })
+     populateTodos(arrayOfTodos) 
+
+   }
+
+   const inCompleteLi = () => {
+    ol.innerHTML = " ";
+     let inComplete = document.querySelector('#inComplete');
+     arrayOfTodos = arrayOfTodos.filter(todo => {
+       return todo.completed === false
+     })
+     populateTodos(arrayOfTodos) 
+
+   }

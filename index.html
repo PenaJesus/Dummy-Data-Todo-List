@@ -10,7 +10,12 @@
 
   <button onclick="fetchTodos()">Fetch Todos</button>
   <button onclick="logTodos()">Log Todos</button>
-  <button onclick="populateTodos()">Populate Todos</button>
+  <button id="populate">Populate Todos</button>
+  <button onclick="filterUserId()">Filter User Id</button>
+  <input type="number" name="userID" id="inputUserID">
+  <button onclick="removeLi()" id="Remove">Remove</button>
+  <button onclick="completedLi()" id="Complete">Complete</button>
+  <button onclick="inCompleteLi()" id="inComplete">incomplete</button>
   <ol id="todo-list">
   <!-- LIs will go here -->
   </ol>
